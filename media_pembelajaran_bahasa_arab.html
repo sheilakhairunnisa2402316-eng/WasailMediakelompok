@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Pembelajaran Bahasa Arab — Maharah Kalam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+:root {
+  --cream: #FDF6EC;
+  --cream2: #F5E6CC;
+  --blue1: #C8DEFA;
+  --blue2: #8BB8ED;
+  --blue3: #4A86D0;
+  --blue4: #1D5FA0;
+  --gold: #C9A227;
+  --gold-light: #F0D080;
+  --green: #4CAF77;
+  --text-dark: #1A2E4A;
+  --text-mid: #3A5A80;
+  --text-light: #6A8AAA;
+  --card-bg: #FFFFFF;
+  --border-soft: rgba(74,134,208,0.18);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--text-dark); min-height: 100vh; }
+
+.wrap { max-width: 760px; margin: 0 auto; padding-bottom: 48px; }
+
+/* HEADER */
+.header {
+  background: linear-gradient(135deg, var(--blue4) 0%, var(--blue3) 60%, #2E7FC0 100%);
+  padding: 30px 24px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06) 0%, transparent 40%);
+}
+.geo-ornament {
+  position: absolute; opacity: 0.07;
+  top: -20px; right: -20px; width: 160px; height: 160px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35' fill='white'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.header-bismillah { font-family: 'Amiri', serif; font-size: 24px; color: var(--gold-light); letter-spacing: 2px; margin-bottom: 10px; position: relative; }
+.header-title { font-size: 22px; font-weight: 800; color: #fff; position: relative; line-height: 1.3; }
+.header-sub { font-size: 13px; color: rgba(255,255,255,0.75); margin-top: 5px; position: relative; }
+.header-badges { display: flex; gap: 8px; justify-content: center; margin-top: 12px; flex-wrap: wrap; position: relative; }
+.header-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+  color: #fff; font-size: 11px; font-weight: 700;
+  padding: 4px 12px; border-radius: 20px; backdrop-filter: blur(4px);
+}
+.header-badge.gold { background: var(--gold); border-color: var(--gold); }
+.ornament { color: var(--gold-light); opacity: 0.7; font-size: 16px; }
+
+/* NAV */
+.nav {
+  display: flex; background: var(--blue4);
+  overflow-x: auto; scrollbar-width: none; position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav-btn {
+  flex: 1; min-width: 82px; padding: 10px 6px; border: none;
+  background: transparent; color: rgba(255,255,255,0.6);
+  font-family: 'Nunito', sans-serif; font-size: 10px; font-weight: 700;
+  cursor: pointer; text-align: center; border-bottom: 3px solid transparent;
+  transition: all 0.2s; line-height: 1.3;
+}
+.nav-btn.active { color: #fff; border-bottom-color: var(--gold-light); background: rgba(255,255,255,0.09); }
+.nav-btn:hover:not(.active) { color: #fff; background: rgba(255,255,255,0.05); }
+.nav-icon { display: block; font-size: 17px; margin-bottom: 2px; }
+
+/* SECTIONS */
+.section { display: none; padding: 22px 18px; }
+.section.active { display: block; }
+.section-header { margin-bottom: 16px; }
+.section-title { font-size: 16px; font-weight: 800; color: var(--blue4); display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
+.section-title i { font-size: 20px; color: var(--blue3); }
+.section-desc { font-size: 12px; color: var(--text-light); line-height: 1.5; }
+
+/* CARDS */
+.card { background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-soft); padding: 18px; margin-bottom: 14px; box-shadow: 0 2px 14px rgba(74,134,208,0.07); }
+
+/* TIP BOX */
+.tip-box {
+  background: linear-gradient(135deg, #EAF3FF, var(--cream));
+  border-radius: 12px; padding: 13px 15px;
+  border-left: 4px solid var(--blue3); margin-top: 16px;
+}
+.tip-title { font-size: 12px; font-weight: 800; color: var(--blue4); margin-bottom: 5px; }
+.tip-text { font-size: 12px; color: var(--text-mid); line-height: 1.6; }
+
+/* ========== FLASHCARD ========== */
+.flashcard-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+@media(max-width:480px){ .flashcard-grid { grid-template-columns: repeat(2,1fr); } }
+.fc {
+  background: var(--card-bg); border-radius: 14px;
+  border: 1.5px solid var(--border-soft); padding: 14px 10px;
+  text-align: center; cursor: pointer; transition: all 0.25s;
+  box-shadow: 0 2px 8px rgba(74,134,208,0.06); position: relative; overflow: hidden;
+  user-select: none;
+}
+.fc::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--blue3),var(--gold)); }
+.fc.learned { border-color: var(--green); }
+.fc.learned::before { background: linear-gradient(90deg, var(--green), #8BC34A); }
+.fc:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(74,134,208,0.15); }
+.fc-check { position:absolute; top:7px; right:9px; font-size:14px; color:var(--green); font-weight:900; }
+.fc-emoji { font-size: 34px; display: block; margin-bottom: 6px; }
+.fc-arabic { font-family: 'Amiri', serif; font-size: 22px; color: var(--blue4); font-weight: 700; display: block; direction: rtl; margin-bottom: 4px; }
+.fc-latin { font-size: 10px; color: var(--text-light); display: block; font-style: italic; margin-bottom: 3px; }
+.fc-meaning { font-size: 12px; color: var(--text-dark); font-weight: 700; display: block; }
+.fc-cat { display:inline-block; font-size:9px; background:var(--blue1); color:var(--blue4); border-radius:8px; padding:2px 7px; margin-top:4px; font-weight:700; }
+.progress-bar-wrap { margin-top: 14px; }
+.pb-label { font-size: 11px; color: var(--text-light); margin-bottom: 5px; display: flex; justify-content: space-between; }
+.pb { height: 7px; background: var(--blue1); border-radius: 4px; overflow: hidden; }
+.pb-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--blue3), var(--gold)); transition: width 0.5s ease; }
+.fc-reset-btn {
+  background: none; border: 1px dashed var(--blue2); color: var(--text-light);
+  border-radius: 8px; padding: 5px 14px; font-family:'Nunito',sans-serif;
+  font-size: 11px; cursor: pointer; margin-top: 10px; transition: all 0.2s;
+}
+.fc-reset-btn:hover { background: var(--cream2); color: var(--blue4); }
+
+/* ========== JAM ========== */
+.clock-wrap { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.clock-svg-wrap { background: white; border-radius: 50%; padding: 10px; border: 2.5px solid var(--blue1); box-shadow: 0 4px 24px rgba(74,134,208,0.14); }
+.time-display { font-size: 30px; font-weight: 800; color: var(--blue4); background: var(--blue1); border-radius: 14px; padding: 7px 26px; letter-spacing: 2px; }
+.arabic-time { font-family: 'Amiri', serif; font-size: 22px; color: var(--gold); font-weight: 700; direction: rtl; text-align: center; }
+.time-latin { font-size: 11px; color: var(--text-light); font-style: italic; text-align: center; }
+.time-controls { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 6px; }
+.time-btn {
+  background: var(--blue3); color: white; border: none; border-radius: 10px;
+  padding: 7px 14px; font-family: 'Nunito', sans-serif; font-size: 11px; font-weight: 700;
+  cursor: pointer; transition: all 0.2s;
+}
+.time-btn:hover { background: var(--blue4); transform: scale(1.03); }
+.time-btn.active-tb { background: var(--blue4); outline: 2px solid var(--gold); }
+.time-vocab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
+@media(max-width:480px){ .time-vocab-grid { grid-template-columns: repeat(2,1fr); } }
+.tv-item { background: var(--cream); border-radius: 10px; padding: 9px 12px; border: 1px solid var(--blue1); text-align: center; }
+.tv-ar { font-family: 'Amiri', serif; font-size: 17px; color: var(--blue4); direction: rtl; font-weight: 700; }
+.tv-id { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+
+/* ========== TEMATIK ========== */
+.theme-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.theme-card { border-radius: 14px; overflow: hidden; border: 1.5px solid var(--border-soft); cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 8px rgba(74,134,208,0.06); }
+.theme-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(74,134,208,0.15); }
+.theme-card.selected { border-color: var(--blue3); box-shadow: 0 0 0 3px rgba(74,134,208,0.18); }
+.theme-illus { height: 100px; display: flex; align-items: center; justify-content: center; font-size: 52px; }
+.theme-info { background: white; padding: 10px 14px; }
+.theme-ar { font-family: 'Amiri', serif; font-size: 19px; color: var(--blue4); direction: rtl; font-weight: 700; }
+.theme-id { font-size: 11px; color: var(--text-light); }
+.vocab-popup { display: none; background: white; border-radius: 14px; border: 1.5px solid var(--blue2); padding: 16px; margin-top: 12px; }
+.vocab-popup.show { display: block; animation: fadeIn 0.25s ease; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
+.vocab-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+@media(max-width:400px){ .vocab-list { grid-template-columns: repeat(2,1fr); } }
+.vl-item { text-align: center; background: var(--cream); border-radius: 10px; padding: 10px 6px; }
+.vl-emoji { font-size: 24px; display: block; margin-bottom: 4px; }
+.vl-ar { font-family: 'Amiri', serif; font-size: 16px; color: var(--blue4); direction: rtl; display: block; font-weight: 700; }
+.vl-id { font-size: 10px; color: var(--text-light); margin-top: 2px; }
+
+/* ========== BERSERI ========== */
+.story-nav { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.story-nav-btn {
+  background: var(--blue3); color: white; border: none; border-radius: 50%;
+  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 17px; transition: all 0.2s; flex-shrink: 0;
+}
+.story-nav-btn:hover { background: var(--blue4); }
+.story-nav-btn:disabled { background: var(--blue1); color: var(--blue2); cursor: default; }
+.story-progress { flex: 1; display: flex; gap: 6px; align-items: center; justify-content: center; }
+.sp-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--blue1); transition: all 0.2s; cursor: pointer; }
+.sp-dot.active { background: var(--blue3); width: 24px; border-radius: 5px; }
+.story-card { background: white; border-radius: 16px; border: 1.5px solid var(--border-soft); overflow: hidden; box-shadow: 0 2px 14px rgba(74,134,208,0.08); }
+.story-illus { background: linear-gradient(135deg, var(--blue1) 0%, var(--cream) 100%); height: 150px; display: flex; align-items: center; justify-content: center; font-size: 70px; position: relative; }
+.story-num { position:absolute; top:12px; left:12px; background:var(--blue4); color:white; font-size:11px; font-weight:800; border-radius:8px; padding:3px 10px; }
+.story-title-label { position:absolute; top:12px; right:12px; background:rgba(255,255,255,0.85); color:var(--blue4); font-size:10px; font-weight:700; border-radius:8px; padding:3px 10px; }
+.story-body { padding: 16px 18px; }
+.story-ar { font-family:'Amiri',serif; font-size:21px; color:var(--blue4); direction:rtl; text-align:right; font-weight:700; margin-bottom:8px; line-height:1.7; background:var(--cream); border-radius:10px; padding:10px 14px; }
+.story-id { font-size:13px; color:var(--text-mid); margin-bottom:10px; font-style:italic; }
+.story-vocab { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+.sv-tag { background:var(--blue1); color:var(--blue4); border-radius:8px; padding:4px 10px; font-size:10px; font-weight:700; }
+.sv-tag span { font-family:'Amiri',serif; font-size:14px; }
+
+/* ========== LATIHAN ========== */
+.ex-card { background: white; border-radius: 16px; border: 1.5px solid var(--border-soft); padding: 18px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(74,134,208,0.06); }
+.ex-num { width:26px; height:26px; border-radius:50%; background:var(--blue3); color:white; font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.ex-type { font-size:10px; font-weight:800; letter-spacing:0.8px; color:var(--gold); text-transform:uppercase; margin-bottom:7px; display:flex; align-items:center; gap:6px; }
+.ex-question { font-size:13px; color:var(--text-mid); margin-bottom:10px; font-weight:600; }
+.ex-arabic { font-family:'Amiri',serif; font-size:22px; color:var(--blue4); direction:rtl; text-align:right; font-weight:700; line-height:1.7; margin-bottom:8px; background:var(--cream); border-radius:10px; padding:10px 14px; border-left:4px solid var(--blue3); }
+.ex-hint { font-size:11px; color:var(--text-light); font-style:italic; background:#FFFBF0; border-radius:8px; padding:7px 10px; border-left:3px solid var(--gold-light); }
+.ex-answer-btn { background:var(--cream2); color:var(--blue4); border:1px dashed var(--blue2); border-radius:10px; padding:9px 14px; font-family:'Nunito',sans-serif; font-size:12px; font-weight:700; cursor:pointer; margin-top:12px; transition:all 0.2s; display:block; width:100%; text-align:center; }
+.ex-answer-btn:hover { background:var(--blue1); }
+.ex-answer { display:none; margin-top:10px; background:linear-gradient(135deg,#E8F5E9,#F0F9FF); border-radius:12px; padding:14px; border-left:4px solid var(--green); }
+.ex-answer.show { display:block; animation:fadeIn 0.2s ease; }
+.ex-ans-label { font-size:10px; font-weight:800; color:var(--green); margin-bottom:7px; }
+.ex-ans-ar { font-family:'Amiri',serif; font-size:19px; color:var(--blue4); direction:rtl; text-align:right; font-weight:700; margin-bottom:6px; line-height:1.6; }
+.ex-ans-id { font-size:12px; color:var(--text-mid); font-style:italic; }
+
+/* ========== DIALOG ========== */
+.dialog-tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
+.dialog-tab-btn { background:var(--blue2); color:white; border:none; border-radius:10px; padding:7px 16px; font-family:'Nunito',sans-serif; font-size:11px; font-weight:700; cursor:pointer; transition:all 0.2s; }
+.dialog-tab-btn.active { background:var(--blue4); }
+.dialog-tab-btn:hover { background:var(--blue3); }
+.dialog-wrap { display:flex; flex-direction:column; gap:12px; }
+.dialog-bubble { display:flex; gap:10px; align-items:flex-start; }
+.dialog-bubble.right { flex-direction:row-reverse; }
+.dialog-avatar { width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; border:2px solid var(--blue1); background:white; box-shadow:0 2px 6px rgba(74,134,208,0.1); }
+.dialog-text { background:white; border-radius:14px; border:1px solid var(--border-soft); padding:11px 15px; max-width:75%; box-shadow:0 1px 6px rgba(74,134,208,0.06); }
+.dialog-bubble.right .dialog-text { background:var(--blue4); border-color:var(--blue4); }
+.dialog-ar { font-family:'Amiri',serif; font-size:18px; direction:rtl; text-align:right; font-weight:700; color:var(--blue4); margin-bottom:4px; }
+.dialog-bubble.right .dialog-ar { color:white; }
+.dialog-latin { font-size:10px; color:var(--text-light); font-style:italic; }
+.dialog-bubble.right .dialog-latin { color:rgba(255,255,255,0.65); }
+.dialog-id { font-size:11px; color:var(--text-mid); margin-top:3px; }
+.dialog-bubble.right .dialog-id { color:rgba(255,255,255,0.85); }
+.dialog-label { font-size:10px; color:var(--text-light); text-align:center; margin:4px 0; display:flex; align-items:center; gap:8px; }
+.dialog-label::before, .dialog-label::after { content:''; flex:1; height:1px; background:var(--border-soft); }
+
+/* ========== KAMUS ========== */
+.kamus-search-wrap { position:relative; margin-bottom:14px; }
+.kamus-search { width:100%; padding:11px 14px 11px 38px; border-radius:12px; border:1.5px solid var(--blue1); font-family:'Nunito',sans-serif; font-size:13px; color:var(--text-dark); background:white; outline:none; transition:border-color 0.2s; }
+.kamus-search:focus { border-color:var(--blue3); box-shadow:0 0 0 3px rgba(74,134,208,0.1); }
+.kamus-search-icon { position:absolute; left:12px; top:50%; transform:translateY(-50%); font-size:18px; color:var(--text-light); }
+.kamus-filter { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px; }
+.kf-btn { background:var(--cream2); color:var(--text-mid); border:1px solid var(--cream2); border-radius:8px; padding:4px 12px; font-family:'Nunito',sans-serif; font-size:10px; font-weight:700; cursor:pointer; transition:all 0.2s; }
+.kf-btn:hover, .kf-btn.active { background:var(--blue3); color:white; border-color:var(--blue3); }
+.kamus-list { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+@media(max-width:400px){ .kamus-list { grid-template-columns:1fr; } }
+.kamus-item { background:white; border-radius:12px; border:1px solid var(--border-soft); padding:11px 14px; transition:all 0.2s; }
+.kamus-item:hover { border-color:var(--blue2); background:var(--cream); transform:translateY(-1px); }
+.kamus-ar { font-family:'Amiri',serif; font-size:22px; color:var(--blue4); direction:rtl; font-weight:700; }
+.kamus-latin { font-size:10px; color:var(--text-light); font-style:italic; margin:2px 0; }
+.kamus-id { font-size:13px; color:var(--text-dark); font-weight:700; }
+.kamus-cat { font-size:9px; color:var(--gold); font-weight:800; text-transform:uppercase; margin-top:2px; }
+.kamus-none { text-align:center; color:var(--text-light); font-size:13px; padding:28px; grid-column:1/-1; }
+
+/* FOOTER */
+.footer { text-align:center; padding:20px; font-size:11px; color:var(--text-light); border-top:1px solid var(--border-soft); margin-top:20px; }
+.footer strong { color:var(--blue4); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="geo-ornament"></div>
+    <div class="header-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+    <div class="header-title">
+      <span class="ornament">❖</span>
+      Media Pembelajaran Bahasa Arab Interaktif
+      <span class="ornament">❖</span>
+    </div>
+    <div class="header-sub">Maharah Kalam · Keterampilan Berbicara · MA / MTs</div>
+    <div class="header-badges">
+      <span class="header-badge gold">🎓 Tingkat Menengah</span>
+      <span class="header-badge">📖 7 Modul Interaktif</span>
+      <span class="header-badge">🗣️ Speaking Practice</span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <button class="nav-btn active" onclick="showSection('flashcard',this)"><span class="nav-icon"><i class="ti ti-cards"></i></span>Flashcard</button>
+    <button class="nav-btn" onclick="showSection('jam',this)"><span class="nav-icon"><i class="ti ti-clock"></i></span>Model Jam</button>
+    <button class="nav-btn" onclick="showSection('tematik',this)"><span class="nav-icon"><i class="ti ti-photo"></i></span>Tematik</button>
+    <button class="nav-btn" onclick="showSection('berseri',this)"><span class="nav-icon"><i class="ti ti-layout-list"></i></span>Berseri</button>
+    <button class="nav-btn" onclick="showSection('latihan',this)"><span class="nav-icon"><i class="ti ti-microphone"></i></span>Latihan</button>
+    <button class="nav-btn" onclick="showSection('dialog',this)"><span class="nav-icon"><i class="ti ti-messages"></i></span>Dialog</button>
+    <button class="nav-btn" onclick="showSection('kamus',this)"><span class="nav-icon"><i class="ti ti-book"></i></span>Kamus</button>
+  </nav>
+
+  <!-- ========== FLASHCARD ========== -->
+  <div id="sec-flashcard" class="section active">
+    <div class="section-header">
+      <div class="section-title"><i class="ti ti-cards"></i> Flashcard Kosakata</div>
+      <div class="section-desc">Tap setiap kartu untuk menandai sudah hafal ✓ — kartu akan berubah hijau. Pelajari semua kata untuk mencapai 100%!</div>
+    </div>
+    <div class="flashcard-grid" id="fc-grid"></div>
+    <div class="progress-bar-wrap">
+      <div class="pb-label"><span>Progres Hafalan</span><span id="fc-progress-txt">0/12 kata</span></div>
+      <div class="pb"><div class="pb-fill" id="fc-progress-bar" style="width:0%"></div></div>
+    </div>
+    <div style="text-align:center;margin-top:8px">
+      <button class="fc-reset-btn" onclick="resetFC()">↺ Reset Hafalan</button>
+    </div>
+    <div class="tip-box">
+      <div class="tip-title">💡 Teknik Spaced Repetition</div>
+      <div class="tip-text">Ucapkan setiap kata dengan keras sambil melihat benda aslinya. Ulangi 5× sehari selama 7 hari berturut-turut untuk hafalan jangka panjang. Fokus pada kata yang terasa paling sulit!</div>
+    </div>
+  </div>
+
+  <!-- ========== JAM ========== -->
+  <div id="sec-jam" class="section">
+    <div class="section-header">
+      <div class="section-title"><i class="ti ti-clock"></i> Model Jam (نَمُوذَجُ السَّاعَةِ)</div>
+      <div class="section-desc">Belajar menyebutkan waktu dalam Bahasa Arab dengan harakat lengkap. Klik tombol waktu untuk berlatih mengucapkan.</div>
+    </div>
+    <div class="card clock-wrap" style="padding:24px">
+      <svg id="clock-svg" width="190" height="190" viewBox="0 0 190 190" class="clock-svg-wrap">
+        <defs>
+          <filter id="sf" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="rgba(74,134,208,0.15)"/>
+          </filter>
+        </defs>
+        <circle cx="95" cy="95" r="88" fill="#E8F4FF" stroke="#C8DEFA" stroke-width="3"/>
+        <circle cx="95" cy="95" r="78" fill="white" stroke="#8BB8ED" stroke-width="1.5"/>
+        <!-- tick marks -->
+        <g stroke="#C8DEFA" stroke-width="1">
+          <line x1="95" y1="20" x2="95" y2="27"/>
+          <line x1="148" y1="42" x2="143" y2="47"/>
+          <line x1="170" y1="95" x2="163" y2="95"/>
+          <line x1="148" y1="148" x2="143" y2="143"/>
+          <line x1="95" y1="170" x2="95" y2="163"/>
+          <line x1="42" y1="148" x2="47" y2="143"/>
+          <line x1="20" y1="95" x2="27" y2="95"/>
+          <line x1="42" y1="42" x2="47" y2="47"/>
+        </g>
+        <!-- hour numbers (Arabic) -->
+        <text x="95" y="33" text-anchor="middle" font-family="Nunito,sans-serif" font-size="14" font-weight="800" fill="#1D5FA0">١٢</text>
+        <text x="160" y="99" text-anchor="middle" font-family="Nunito,sans-serif" font-size="14" font-weight="800" fill="#1D5FA0">٣</text>
+        <text x="95" y="169" text-anchor="middle" font-family="Nunito,sans-serif" font-size="14" font-weight="800" fill="#1D5FA0">٦</text>
+        <text x="30" y="99" text-anchor="middle" font-family="Nunito,sans-serif" font-size="14" font-weight="800" fill="#1D5FA0">٩</text>
+        <text x="127" y="46" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#8BB8ED">١</text>
+        <text x="148" y="68" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#8BB8ED">٢</text>
+        <text x="150" y="124" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#8BB8ED">٤</text>
+        <text x="128" y="147" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#8BB8ED">٥</text>
+        <text x="62" y="147" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#8BB8ED">٧</text>
+        <text x="40" y="124" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#8BB8ED">٨</text>
+        <text x="40" y="68" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#8BB8ED">١٠</text>
+        <text x="62" y="46" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#8BB8ED">١١</text>
+        <!-- hands -->
+        <line id="hour-hand" x1="95" y1="95" x2="95" y2="52" stroke="#1D5FA0" stroke-width="6" stroke-linecap="round"/>
+        <line id="min-hand" x1="95" y1="95" x2="95" y2="35" stroke="#4A86D0" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="95" cy="95" r="5" fill="#C9A227"/>
+        <circle cx="95" cy="95" r="2" fill="white"/>
+      </svg>
+      <div class="time-display" id="time-display">07:00</div>
+      <div class="arabic-time" id="arabic-time">السَّاعَةُ السَّابِعَةُ صَبَاحًا</div>
+      <div class="time-latin" id="time-latin">as-sā'atu as-sābi'atu ṣabāḥan</div>
+      <div class="time-controls" id="time-controls">
+        <button class="time-btn active-tb" onclick="setTime(7,0,'صَبَاحًا','pagi',this)">07:00 صباح</button>
+        <button class="time-btn" onclick="setTime(10,0,'صَبَاحًا','pagi',this)">10:00 صباح</button>
+        <button class="time-btn" onclick="setTime(12,0,'ظُهْرًا','siang',this)">12:00 ظهر</button>
+        <button class="time-btn" onclick="setTime(15,30,'عَصْرًا','sore',this)">15:30 عصر</button>
+        <button class="time-btn" onclick="setTime(18,0,'مَسَاءً','sore',this)">18:00 مساء</button>
+        <button class="time-btn" onclick="setTime(21,0,'مَسَاءً','malam',this)">21:00 مساء</button>
+      </div>
+    </div>
+    <div class="time-vocab-grid">
+      <div class="tv-item"><div class="tv-ar">الصَّبَاحُ</div><div class="tv-id">Pagi hari</div></div>
+      <div class="tv-item"><div class="tv-ar">الظُّهْرُ</div><div class="tv-id">Tengah hari</div></div>
+      <div class="tv-item"><div class="tv-ar">الْعَصْرُ</div><div class="tv-id">Sore hari</div></div>
+      <div class="tv-item"><div class="tv-ar">الْمَسَاءُ</div><div class="tv-id">Petang/Malam</div></div>
+      <div class="tv-item"><div class="tv-ar">اللَّيْلُ</div><div class="tv-id">Malam</div></div>
+      <div class="tv-item"><div class="tv-ar">نِصْفُ سَاعَةٍ</div><div class="tv-id">Setengah jam</div></div>
+    </div>
+    <div class="tip-box">
+      <div class="tip-title">📣 Contoh Tanya-Jawab Waktu</div>
+      <div class="tip-text">
+        <span style="font-family:'Amiri',serif;font-size:16px;direction:rtl;display:block;text-align:right;color:var(--blue4);margin-bottom:4px">كَمِ السَّاعَةُ الآنَ؟</span>
+        <em>Kamisas-sā'atu al-ān? → "Jam berapa sekarang?"</em><br><br>
+        <span style="font-family:'Amiri',serif;font-size:16px;direction:rtl;display:block;text-align:right;color:var(--blue4);margin-bottom:4px">السَّاعَةُ الثَّامِنَةُ صَبَاحًا</span>
+        <em>as-sā'atu aṡ-ṡāminatu ṣabāḥan → "Jam delapan pagi"</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== TEMATIK ========== -->
+  <div id="sec-tematik" class="section">
+    <div class="section-header">
+      <div class="section-title"><i class="ti ti-photo"></i> Gambar Tematik</div>
+      <div class="section-desc">Pilih tema untuk membuka kosakata terkait. Pelajari kata-kata dalam konteks situasi nyata.</div>
+    </div>
+    <div class="theme-grid" id="theme-grid"></div>
+    <div class="vocab-popup" id="vocab-popup">
+      <div style="font-size:12px;font-weight:800;color:var(--blue4);margin-bottom:2px" id="popup-title"></div>
+      <div style="font-size:11px;color:var(--text-light);margin-bottom:10px" id="popup-sub"></div>
+      <div class="vocab-list" id="popup-vocab"></div>
+    </div>
+    <div class="tip-box">
+      <div class="tip-title">🎯 Cara Belajar Tematik</div>
+      <div class="tip-text">Pilih satu tema, hafalkan semua kosakatanya dulu. Kemudian coba buat kalimat sederhana menggunakan kata-kata tersebut dalam konteks cerita pendek!</div>
+    </div>
+  </div>
+
+  <!-- ========== BERSERI ========== -->
+  <div id="sec-berseri" class="section">
+    <div class="section-header">
+      <div class="section-title"><i class="ti ti-layout-list"></i> Gambar Berseri</div>
+      <div class="section-desc">Cerita "Sehari Bersama Ahmad" — 5 panel berurutan. Navigasi antar panel dan pelajari kalimat tiap adegan.</div>
+    </div>
+    <div class="story-nav">
+      <button class="story-nav-btn" id="story-prev" onclick="storyNav(-1)"><i class="ti ti-chevron-left"></i></button>
+      <div class="story-progress" id="story-dots"></div>
+      <button class="story-nav-btn" id="story-next" onclick="storyNav(1)"><i class="ti ti-chevron-right"></i></button>
+    </div>
+    <div class="story-card" id="story-card"></div>
+    <div class="tip-box">
+      <div class="tip-title">🗣️ Tugas Berbicara (Ta'bir Syafahi)</div>
+      <div class="tip-text">Setelah melihat semua 5 panel, tutup media ini dan ceritakan kembali kisah Ahmad dalam Bahasa Arab! Gunakan kata penghubung:<br><br>
+        <strong style="color:var(--blue4);font-family:'Amiri',serif">أَوَّلًا</strong> (pertama) → 
+        <strong style="color:var(--blue4);font-family:'Amiri',serif">ثُمَّ</strong> (kemudian) → 
+        <strong style="color:var(--blue4);font-family:'Amiri',serif">بَعْدَ ذٰلِكَ</strong> (setelah itu) → 
+        <strong style="color:var(--blue4);font-family:'Amiri',serif">أَخِيرًا</strong> (akhirnya)
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== LATIHAN ========== -->
+  <div id="sec-latihan" class="section">
+    <div class="section-header">
+      <div class="section-title"><i class="ti ti-microphone"></i> Latihan Kalam</div>
+      <div class="section-desc">Baca pertanyaan, pikirkan jawabanmu sendiri dulu, baru klik "Lihat Contoh Jawaban". Ucapkan dengan lantang!</div>
+    </div>
+    <div id="latihan-list"></div>
+    <div class="tip-box">
+      <div class="tip-title">⭐ Teknik Ta'bir Syafahi yang Efektif</div>
+      <div class="tip-text">
+        <strong style="color:var(--blue4)">1.</strong> Baca kalimat Arab dalam hati terlebih dahulu<br>
+        <strong style="color:var(--blue4)">2.</strong> Ucapkan dengan suara lantang 3× berturut-turut<br>
+        <strong style="color:var(--blue4)">3.</strong> Rekam suaramu, lalu dengarkan kembali<br>
+        <strong style="color:var(--blue4)">4.</strong> Ganti informasi dengan data pribadimu sendiri
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== DIALOG ========== -->
+  <div id="sec-dialog" class="section">
+    <div class="section-header">
+      <div class="section-title"><i class="ti ti-messages"></i> Contoh Dialog</div>
+      <div class="section-desc">Pilih situasi dialog, pelajari percakapannya, lalu praktikkan berpasangan dengan teman.</div>
+    </div>
+    <div class="dialog-tabs" id="dialog-tabs"></div>
+    <div class="dialog-wrap" id="dialog-content"></div>
+    <div class="tip-box">
+      <div class="tip-title">👥 Cara Berlatih Dialog</div>
+      <div class="tip-text">Perankan dialog ini dengan teman sekelas. Satu orang jadi tokoh kiri, satu lagi tokoh kanan. Perhatikan intonasi dan ekspresi! Bergantian peran setelah selesai satu putaran.</div>
+    </div>
+  </div>
+
+  <!-- ========== KAMUS ========== -->
+  <div id="sec-kamus" class="section">
+    <div class="section-header">
+      <div class="section-title"><i class="ti ti-book"></i> Kamus Mini</div>
+      <div class="section-desc">30+ kosakata pilihan. Cari berdasarkan Bahasa Indonesia, Arab, atau transliterasi. Filter by kategori.</div>
+    </div>
+    <div class="kamus-search-wrap">
+      <i class="ti ti-search kamus-search-icon"></i>
+      <input type="text" class="kamus-search" id="kamus-input" placeholder="Cari kata... (misal: rumah / بَيْت / bait)" oninput="filterKamus()">
+    </div>
+    <div class="kamus-filter" id="kamus-filter"></div>
+    <div class="kamus-list" id="kamus-list"></div>
+  </div>
+
+  <div class="footer">
+    <strong>Media Pembelajaran Bahasa Arab Interaktif</strong> — Maharah Kalam<br>
+    Untuk siswa MA/MTs · Dibuat dengan ❤️ untuk kemudahan belajar Bahasa Arab
+  </div>
+
+</div>
+
+<script>
+// ===========================
+// DATA
+// ===========================
+const fcData = [
+  {emoji:'🏠',ar:'بَيْتٌ',latin:'baitun',id:'Rumah',cat:'Tempat'},
+  {emoji:'📚',ar:'كِتَابٌ',latin:'kitābun',id:'Buku',cat:'Benda'},
+  {emoji:'🏫',ar:'مَدْرَسَةٌ',latin:'madrasatun',id:'Sekolah',cat:'Tempat'},
+  {emoji:'🍚',ar:'طَعَامٌ',latin:"ṭa'āmun",id:'Makanan',cat:'Kebutuhan'},
+  {emoji:'💧',ar:'مَاءٌ',latin:"mā'un",id:'Air',cat:'Kebutuhan'},
+  {emoji:'👨‍🏫',ar:'مُعَلِّمٌ',latin:"mu'allimun",id:'Guru',cat:'Profesi'},
+  {emoji:'🚗',ar:'سَيَّارَةٌ',latin:'sayyāratun',id:'Mobil',cat:'Kendaraan'},
+  {emoji:'✏️',ar:'قَلَمٌ',latin:'qalamun',id:'Pena/Pensil',cat:'Benda'},
+  {emoji:'👜',ar:'حَقِيبَةٌ',latin:'ḥaqībatun',id:'Tas',cat:'Benda'},
+  {emoji:'🌙',ar:'لَيْلٌ',latin:'lailun',id:'Malam',cat:'Waktu'},
+  {emoji:'☀️',ar:'شَمْسٌ',latin:'syamsun',id:'Matahari',cat:'Alam'},
+  {emoji:'🕌',ar:'مَسْجِدٌ',latin:'masjidun',id:'Masjid',cat:'Tempat'},
+];
+
+const themeData = [
+  {emoji:'🏠',bg:'#E8F4FF',ar:'الْبَيْتُ',id:'Di Rumah',
+   vocab:[{e:'🛏️',ar:'سَرِيرٌ',id:'Tempat tidur'},{e:'🍳',ar:'مَطْبَخٌ',id:'Dapur'},{e:'🪑',ar:'كُرْسِيٌّ',id:'Kursi'},{e:'📺',ar:'تَلِفَازٌ',id:'Televisi'},{e:'🚿',ar:'حَمَّامٌ',id:'Kamar mandi'},{e:'🪟',ar:'نَافِذَةٌ',id:'Jendela'}]},
+  {emoji:'🏫',bg:'#FFF3E8',ar:'الْمَدْرَسَةُ',id:'Di Sekolah',
+   vocab:[{e:'📋',ar:'سَبُّورَةٌ',id:'Papan tulis'},{e:'📚',ar:'كِتَابٌ',id:'Buku'},{e:'✏️',ar:'قَلَمٌ',id:'Pena'},{e:'🎒',ar:'حَقِيبَةٌ',id:'Tas'},{e:'👨‍🏫',ar:'مُعَلِّمٌ',id:'Guru'},{e:'🏃',ar:'تِلْمِيذٌ',id:'Murid'}]},
+  {emoji:'🕌',bg:'#EEF8EE',ar:'الْمَسْجِدُ',id:'Di Masjid',
+   vocab:[{e:'🕌',ar:'مِحْرَابٌ',id:'Mihrab'},{e:'📿',ar:'سَجَّادَةٌ',id:'Sajadah'},{e:'🔊',ar:'أَذَانٌ',id:'Adzan'},{e:'🧕',ar:'إِمَامٌ',id:'Imam'},{e:'💦',ar:'وُضُوءٌ',id:'Wudhu'},{e:'🤲',ar:'دُعَاءٌ',id:'Doa'}]},
+  {emoji:'🏪',bg:'#FFF8E8',ar:'السُّوقُ',id:'Di Pasar',
+   vocab:[{e:'🛒',ar:'بَائِعٌ',id:'Penjual'},{e:'🍎',ar:'فَاكِهَةٌ',id:'Buah-buahan'},{e:'💰',ar:'ثَمَنٌ',id:'Harga'},{e:'🧺',ar:'خُضَارٌ',id:'Sayuran'},{e:'🪙',ar:'نُقُودٌ',id:'Uang'},{e:'🛍️',ar:'مُشْتَرٍ',id:'Pembeli'}]},
+];
+
+const storyData = [
+  {num:1,emoji:'🌅',title:'Pagi Hari',ar:'أَيْقَظَ أَحْمَدُ نَفْسَهُ مِنَ النَّوْمِ فِي الصَّبَاحِ الْبَاكِرِ',id:'Ahmad terbangun dari tidur di pagi hari yang masih awal.',vocab:[{t:'أَيْقَظَ',id:'membangunkan'},{t:'الصَّبَاحُ',id:'pagi'},{t:'النَّوْمُ',id:'tidur'}]},
+  {num:2,emoji:'🚿',title:'Bersiap',ar:'ذَهَبَ أَحْمَدُ إِلَى الْحَمَّامِ لِيَتَوَضَّأَ وَيَغْسِلَ وَجْهَهُ',id:'Ahmad pergi ke kamar mandi untuk berwudhu dan mencuci wajahnya.',vocab:[{t:'الْحَمَّامُ',id:'kamar mandi'},{t:'تَوَضَّأَ',id:'berwudhu'},{t:'الْوَجْهُ',id:'wajah'}]},
+  {num:3,emoji:'🕌',title:'Shalat Subuh',ar:'صَلَّى أَحْمَدُ صَلَاةَ الْفَجْرِ فِي الْمَسْجِدِ مَعَ أَبِيهِ',id:'Ahmad shalat Subuh di masjid bersama ayahnya.',vocab:[{t:'صَلَّى',id:'mendirikan shalat'},{t:'الْفَجْرُ',id:'fajar/subuh'},{t:'الْمَسْجِدُ',id:'masjid'}]},
+  {num:4,emoji:'🍳',title:'Sarapan',ar:'تَنَاوَلَ أَحْمَدُ الْإِفْطَارَ مَعَ عَائِلَتِهِ بِسُرُورٍ',id:'Ahmad menyantap sarapan bersama keluarganya dengan gembira.',vocab:[{t:'الْإِفْطَارُ',id:'sarapan'},{t:'الْعَائِلَةُ',id:'keluarga'},{t:'سُرُورٌ',id:'kegembiraan'}]},
+  {num:5,emoji:'🎒',title:'Berangkat Sekolah',ar:'اِنْطَلَقَ أَحْمَدُ إِلَى الْمَدْرَسَةِ وَهُوَ مُبْتَسِمٌ وَمُتَحَمِّسٌ',id:'Ahmad berangkat ke sekolah dengan wajah tersenyum dan penuh semangat.',vocab:[{t:'اِنْطَلَقَ',id:'berangkat'},{t:'مُبْتَسِمٌ',id:'tersenyum'},{t:'مُتَحَمِّسٌ',id:'bersemangat'}]},
+];
+
+const latihanData = [
+  {type:'Ta\'aruf — Perkenalan',q:'Perkenalkan dirimu dalam Bahasa Arab!',prompt:'مَنْ أَنْتَ؟',promptLatin:'Man anta? (Siapa kamu?)',hint:'Sebutkan: nama, asal kota, kelas, dan profesimu sebagai pelajar',ar:'أَنَا [اسمك]. أَنَا مِنْ [مدينتك]. أَنَا طَالِبٌ فِي الصَّفِّ [رقم الصف] فِي مَدْرَسَةِ [اسم المدرسة].',id:'Aku [namamu]. Aku dari [kotamu]. Aku murid kelas [nomor kelas] di [nama sekolah].'},
+  {type:'Kegiatan Harian',q:'Ceritakan rutinitas harianmu dari pagi!',prompt:'مَاذَا تَفْعَلُ كُلَّ يَوْمٍ؟',promptLatin:'Māżā taf\'alu kulla yaumin? (Apa yang kamu lakukan setiap hari?)',hint:'Gunakan kata kerja: أَسْتَيْقِظُ، أُصَلِّي، آكُلُ، أَذْهَبُ',ar:'أَسْتَيْقِظُ فِي السَّاعَةِ الخَامِسَةِ. ثُمَّ أُصَلِّي الفَجْرَ. بَعْدَ ذٰلِكَ أَتَنَاوَلُ الإِفْطَارَ، وَأَذْهَبُ إِلَى الْمَدْرَسَةِ.',id:'Aku bangun jam 5. Kemudian aku shalat Subuh. Setelah itu aku sarapan, dan pergi ke sekolah.'},
+  {type:'Deskripsi Tempat',q:'Deskripsikan sekolahmu secara lengkap!',prompt:'صِفْ مَدْرَسَتَكَ!',promptLatin:'Ṣif madrasataka! (Deskripsikan sekolahmu!)',hint:'Sebutkan: nama sekolah, lokasi, jumlah kelas, dan fasilitas yang ada',ar:'مَدْرَسَتِي اسْمُهَا [اسم المدرسة]. هِيَ كَبِيرَةٌ وَجَمِيلَةٌ. فِيهَا مَسْجِدٌ وَمَكْتَبَةٌ وَمَلْعَبٌ وَمَقْصَفٌ.',id:'Sekolahku bernama [nama sekolah]. Ia besar dan indah. Di dalamnya ada masjid, perpustakaan, lapangan, dan kantin.'},
+  {type:'Hobi dan Kegemaran',q:'Ceritakan hobi dan kesukaanmu!',prompt:'مَا هِوَايَتُكَ؟',promptLatin:'Mā hiwāyatuka? (Apa hobimu?)',hint:'Gunakan: أُحِبُّ (aku suka), أُفَضِّلُ (aku lebih suka), لَا أُحِبُّ (aku tidak suka)',ar:'أُحِبُّ قِرَاءَةَ الْكُتُبِ وَالرِّيَاضَةَ. وَأُفَضِّلُ لُعْبَةَ كُرَةِ الْقَدَمِ عَلَى غَيْرِهَا. لَا أُحِبُّ اللُّعَبَ الإِلِكْتُرُونِيَّةَ كَثِيرًا.',id:'Aku suka membaca buku dan olahraga. Dan aku lebih suka sepak bola dibanding yang lain. Aku kurang suka permainan elektronik.'},
+];
+
+const dialogData = [
+  {label:'👋 Perkenalan',lines:[
+    {side:'left',av:'👦',ar:'السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ',latin:"as-salāmu 'alaikum wa raḥmatullāh",id:'Assalamu\'alaikum wa rahmatullah'},
+    {side:'right',av:'👧',ar:'وَعَلَيْكُمُ السَّلَامُ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ',latin:"wa 'alaikumus-salām wa raḥmatullāh wa barakātuh",id:'Wa\'alaikumussalam wa rahmatullahi wa barakatuh'},
+    {type:'label',text:'Saling memperkenalkan diri'},
+    {side:'left',av:'👦',ar:'مَا اسْمُكِ؟ وَمِنْ أَيْنَ أَنْتِ؟',latin:"mā ismuki? wa min aina anti?",id:'Siapa namamu? Dan dari mana asalmu?'},
+    {side:'right',av:'👧',ar:'اِسْمِي فَاطِمَةُ. أَنَا مِنْ سُورَابَايَا. وَأَنْتَ؟',latin:"ismī Fāṭimatu. anā min Sūrābāyā. wa anta?",id:'Namaku Fatimah. Aku dari Surabaya. Dan kamu?'},
+    {side:'left',av:'👦',ar:'اِسْمِي مُحَمَّدٌ. أَنَا مِنْ جَاكَرْتَا. يَسُرُّنِي لِقَاؤُكِ يَا فَاطِمَةُ!',latin:"ismī Muḥammadun. anā min Jākartā. yasurruni liqā'uki yā Fāṭimatu!",id:'Namaku Muhammad. Aku dari Jakarta. Senang bertemu denganmu, Fatimah!'},
+  ]},
+  {label:'🏫 Di Sekolah',lines:[
+    {side:'left',av:'👨‍🏫',ar:'صَبَاحُ الْخَيْرِ يَا تَلَامِيذُ! كَيْفَ حَالُكُمْ؟',latin:"ṣabāḥul-khairi yā talāmīżu! kaifa ḥālukum?",id:'Selamat pagi, para murid! Apa kabar kalian?'},
+    {side:'right',av:'🧑‍🎓',ar:'صَبَاحُ النُّورِ يَا أُسْتَاذُ! نَحْنُ بِخَيْرٍ، شُكْرًا.',latin:"ṣabāḥun-nūri yā ustāżu! naḥnu bikhairin, syukran.",id:'Selamat pagi, Ustaz! Kami baik-baik saja, terima kasih.'},
+    {type:'label',text:'Sesi tanya jawab pelajaran'},
+    {side:'left',av:'👨‍🏫',ar:'هَلْ فَهِمْتُمُ الدَّرْسَ الْمَاضِيَ؟',latin:"hal fahimtumud-darsal-māḍī?",id:'Apakah kalian memahami pelajaran yang lalu?'},
+    {side:'right',av:'🧑‍🎓',ar:'نَعَمْ يَا أُسْتَاذُ، فَهِمْنَا. لٰكِنْ عِنْدَنَا سُؤَالٌ.',latin:"na'am yā ustāżu, fahimnā. lākin 'indanā su'ālun.",id:'Ya, Ustaz, kami mengerti. Tapi kami punya pertanyaan.'},
+    {side:'left',av:'👨‍🏫',ar:'تَفَضَّلُوا، مَا سُؤَالُكُمْ؟',latin:"tafaḍḍalū, mā su'ālukum?",id:'Silakan, apa pertanyaan kalian?'},
+  ]},
+  {label:'🏪 Di Pasar',lines:[
+    {side:'left',av:'🛍️',ar:'السَّلَامُ عَلَيْكُمْ. كَمْ ثَمَنُ هٰذَا الْكِتَابِ؟',latin:"as-salāmu 'alaikum. kam ṡamanu hāżal-kitābi?",id:'Assalamu\'alaikum. Berapa harga buku ini?'},
+    {side:'right',av:'🏪',ar:'وَعَلَيْكُمُ السَّلَامُ. ثَمَنُهُ عَشَرَةُ آلَافِ رُبْيَةٍ.',latin:"wa 'alaikumus-salām. ṡamanuhu 'asyaratu ālāfi rūbiyatin.",id:'Wa\'alaikumussalam. Harganya sepuluh ribu rupiah.'},
+    {type:'label',text:'Proses tawar-menawar'},
+    {side:'left',av:'🛍️',ar:'هَلْ يُمْكِنُ تَخْفِيضُ الثَّمَنِ قَلِيلًا؟ أَنَا طَالِبٌ.',latin:"hal yumkinu takhfīżuṡ-ṡamani qalīlan? anā ṭālibun.",id:'Bolehkah harganya dikurangi sedikit? Saya pelajar.'},
+    {side:'right',av:'🏪',ar:'حَسَنًا، بِثَمَانِيَةِ آلَافٍ فَقَطْ لَكَ.',latin:"ḥasanan, bi-ṡamāniyati ālāfin faqaṭ laka.",id:'Baiklah, delapan ribu saja untukmu.'},
+    {side:'left',av:'🛍️',ar:'جَزَاكَ اللهُ خَيْرًا! تَفَضَّلْ.',latin:"jazākallāhu khairan! tafaḍḍal.",id:'Jazakallah khairan! Silakan (sambil membayar).'},
+  ]},
+];
+
+const kamusData = [
+  {ar:'بَيْتٌ',latin:'baitun',id:'Rumah',cat:'Tempat'},
+  {ar:'مَدْرَسَةٌ',latin:'madrasatun',id:'Sekolah',cat:'Tempat'},
+  {ar:'مَسْجِدٌ',latin:'masjidun',id:'Masjid',cat:'Tempat'},
+  {ar:'مَكْتَبَةٌ',latin:'maktabatun',id:'Perpustakaan',cat:'Tempat'},
+  {ar:'فَصْلٌ',latin:'faṣlun',id:'Kelas',cat:'Tempat'},
+  {ar:'كِتَابٌ',latin:'kitābun',id:'Buku',cat:'Benda'},
+  {ar:'قَلَمٌ',latin:'qalamun',id:'Pena / Pensil',cat:'Benda'},
+  {ar:'حَقِيبَةٌ',latin:'ḥaqībatun',id:'Tas',cat:'Benda'},
+  {ar:'سَبُّورَةٌ',latin:'sabbūratun',id:'Papan tulis',cat:'Benda'},
+  {ar:'مَائِدَةٌ',latin:"mā'idatun",id:'Meja makan',cat:'Benda'},
+  {ar:'مُعَلِّمٌ',latin:"mu'allimun",id:'Guru',cat:'Profesi'},
+  {ar:'تِلْمِيذٌ',latin:'tilmīżun',id:'Murid / Siswa',cat:'Profesi'},
+  {ar:'طَبِيبٌ',latin:'ṭabībun',id:'Dokter',cat:'Profesi'},
+  {ar:'طَاهٍ',latin:'ṭāhin',id:'Koki / Juru masak',cat:'Profesi'},
+  {ar:'طَعَامٌ',latin:"ṭa'āmun",id:'Makanan',cat:'Kebutuhan'},
+  {ar:'مَاءٌ',latin:"mā'un",id:'Air',cat:'Kebutuhan'},
+  {ar:'ثِيَابٌ',latin:'ṡiyābun',id:'Pakaian',cat:'Kebutuhan'},
+  {ar:'شَمْسٌ',latin:'syamsun',id:'Matahari',cat:'Alam'},
+  {ar:'قَمَرٌ',latin:'qamarun',id:'Bulan',cat:'Alam'},
+  {ar:'سَمَاءٌ',latin:"samā'un",id:'Langit',cat:'Alam'},
+  {ar:'شَجَرَةٌ',latin:'syajaratun',id:'Pohon',cat:'Alam'},
+  {ar:'سَيَّارَةٌ',latin:'sayyāratun',id:'Mobil',cat:'Kendaraan'},
+  {ar:'حَافِلَةٌ',latin:'ḥāfilatun',id:'Bus',cat:'Kendaraan'},
+  {ar:'دَرَّاجَةٌ',latin:'darrājatun',id:'Sepeda',cat:'Kendaraan'},
+  {ar:'صَبَاحٌ',latin:'ṣabāḥun',id:'Pagi',cat:'Waktu'},
+  {ar:'مَسَاءٌ',latin:"masā'un",id:'Sore/Petang',cat:'Waktu'},
+  {ar:'يَوْمٌ',latin:'yaumun',id:'Hari',cat:'Waktu'},
+  {ar:'كَبِيرٌ',latin:'kabīrun',id:'Besar',cat:'Sifat'},
+  {ar:'صَغِيرٌ',latin:'ṣaġīrun',id:'Kecil',cat:'Sifat'},
+  {ar:'جَمِيلٌ',latin:'jamīlun',id:'Indah / Cantik',cat:'Sifat'},
+  {ar:'ذَهَبَ',latin:'żahaba',id:'Pergi',cat:'Kata Kerja'},
+  {ar:'قَرَأَ',latin:"qara'a",id:'Membaca',cat:'Kata Kerja'},
+  {ar:'كَتَبَ',latin:'kataba',id:'Menulis',cat:'Kata Kerja'},
+  {ar:'أَكَلَ',latin:'akala',id:'Makan',cat:'Kata Kerja'},
+];
+
+// ===========================
+// FLASHCARD
+// ===========================
+let learnedFC = new Set();
+
+function buildFlashcards(){
+  const g = document.getElementById('fc-grid');
+  g.innerHTML = '';
+  fcData.forEach((w,i)=>{
+    const d = document.createElement('div');
+    d.className = 'fc' + (learnedFC.has(i)?' learned':'');
+    d.innerHTML = (learnedFC.has(i)?'<div class="fc-check">✓</div>':'') +
+      `<span class="fc-emoji">${w.emoji}</span>
+       <span class="fc-arabic">${w.ar}</span>
+       <span class="fc-latin">${w.latin}</span>
+       <span class="fc-meaning">${w.id}</span>
+       <span class="fc-cat">${w.cat}</span>`;
+    d.onclick = ()=>{ learnedFC.add(i); buildFlashcards(); updateFCProgress(); };
+    g.appendChild(d);
+  });
+}
+
+function updateFCProgress(){
+  const pct = Math.round(learnedFC.size/fcData.length*100);
+  document.getElementById('fc-progress-bar').style.width = pct+'%';
+  document.getElementById('fc-progress-txt').textContent = learnedFC.size+'/'+fcData.length+' kata ('+pct+'%)';
+}
+
+function resetFC(){ learnedFC.clear(); buildFlashcards(); updateFCProgress(); }
+
+buildFlashcards(); updateFCProgress();
+
+// ===========================
+// JAM
+// ===========================
+const arabicHours = ['صِفْرٌ','الأُولَى','الثَّانِيَةُ','الثَّالِثَةُ','الرَّابِعَةُ','الخَامِسَةُ','السَّادِسَةُ','السَّابِعَةُ','الثَّامِنَةُ','التَّاسِعَةُ','العَاشِرَةُ','الحَادِيَةَ عَشْرَةَ','الثَّانِيَةَ عَشْرَةَ'];
+const latinHours = ["ṣifrun","al-ūlā","aṡ-ṡāniyatu","aṡ-ṡāliṡatu","ar-rābi'atu","al-khāmisatu","as-sādisatu","as-sābi'atu","aṡ-ṡāminatu","at-tāsi'atu","al-'āsyiratu","al-ḥādiyata 'asyrata","aṡ-ṡāniyata 'asyrata"];
+
+function setTime(h,m,arabicPart,partId,btn){
+  document.querySelectorAll('.time-btn').forEach(b=>b.classList.remove('active-tb'));
+  if(btn) btn.classList.add('active-tb');
+  const hd = String(h).padStart(2,'0'), md = String(m).padStart(2,'0');
+  document.getElementById('time-display').textContent = hd+':'+md;
+  const hr12 = h>12?h-12:(h===0?12:h);
+  let ar = 'السَّاعَةُ '+arabicHours[hr12];
+  if(m===30) ar += ' وَالنِّصْفُ';
+  else if(m===15) ar += ' وَالرُّبْعُ';
+  ar += ' '+arabicPart;
+  document.getElementById('arabic-time').textContent = ar;
+  let lat = "as-sā'atu "+latinHours[hr12]+(m===30?' wa-n-niṣfu':m===15?" wa-r-rub'u":'')+' '+partId;
+  document.getElementById('time-latin').textContent = lat;
+  setHand('hour-hand', (hr12*30)+(m*0.5), 43);
+  setHand('min-hand', m*6, 35);
+}
+function setHand(id,deg,len){
+  const rad=(deg-90)*Math.PI/180;
+  document.getElementById(id).setAttribute('x2',(95+Math.cos(rad)*(95-len-10)).toFixed(1));
+  document.getElementById(id).setAttribute('y2',(95+Math.sin(rad)*(95-len-10)).toFixed(1));
+}
+setTime(7,0,'صَبَاحًا','pagi',null);
+
+// ===========================
+// TEMATIK
+// ===========================
+let activeThemeIdx = null;
+const tg = document.getElementById('theme-grid');
+themeData.forEach((t,i)=>{
+  const d = document.createElement('div');
+  d.className = 'theme-card';
+  d.innerHTML = `<div class="theme-illus" style="background:${t.bg}">${t.emoji}</div><div class="theme-info"><div class="theme-ar">${t.ar}</div><div class="theme-id">${t.id}</div></div>`;
+  d.onclick = ()=>{
+    if(activeThemeIdx===i){ activeThemeIdx=null; document.getElementById('vocab-popup').classList.remove('show'); d.classList.remove('selected'); return; }
+    document.querySelectorAll('.theme-card').forEach(c=>c.classList.remove('selected'));
+    d.classList.add('selected');
+    activeThemeIdx=i; showThemeVocab(i);
+  };
+  tg.appendChild(d);
+});
+function showThemeVocab(i){
+  const t=themeData[i];
+  document.getElementById('popup-title').textContent = '📝 Kosakata Tema: '+t.id;
+  document.getElementById('popup-sub').textContent = 'Klik setiap kartu untuk membantu menghafal';
+  document.getElementById('popup-vocab').innerHTML = t.vocab.map(v=>`<div class="vl-item"><span class="vl-emoji">${v.e}</span><span class="vl-ar">${v.ar}</span><span class="vl-id">${v.id}</span></div>`).join('');
+  const p=document.getElementById('vocab-popup');
+  p.classList.add('show');
+  setTimeout(()=>p.scrollIntoView({behavior:'smooth',block:'nearest'}),100);
+}
+
+// ===========================
+// BERSERI
+// ===========================
+let storyIdx = 0;
+function renderStory(){
+  const s=storyData[storyIdx];
+  document.getElementById('story-card').innerHTML = `
+    <div class="story-illus">
+      <div class="story-num">Panel ${s.num}/${storyData.length}</div>
+      <div class="story-title-label">${s.title}</div>
+      <span style="font-size:72px">${s.emoji}</span>
+    </div>
+    <div class="story-body">
+      <div class="story-ar">${s.ar}</div>
+      <div class="story-id">${s.id}</div>
+      <div style="font-size:11px;font-weight:800;color:var(--text-light);margin-top:10px;margin-bottom:6px">📌 Kosakata Kunci:</div>
+      <div class="story-vocab">${s.vocab.map(v=>`<div class="sv-tag"><span>${v.t}</span> = ${v.id}</div>`).join('')}</div>
+    </div>`;
+  document.getElementById('story-prev').disabled = (storyIdx===0);
+  document.getElementById('story-next').disabled = (storyIdx===storyData.length-1);
+  document.getElementById('story-dots').innerHTML = storyData.map((_,i)=>`<div class="sp-dot${i===storyIdx?' active':''}" onclick="storyGoTo(${i})"></div>`).join('');
+}
+function storyNav(d){ storyIdx=Math.max(0,Math.min(storyData.length-1,storyIdx+d)); renderStory(); }
+function storyGoTo(i){ storyIdx=i; renderStory(); }
+renderStory();
+
+// ===========================
+// LATIHAN
+// ===========================
+const ll = document.getElementById('latihan-list');
+latihanData.forEach((l,i)=>{
+  const d=document.createElement('div');
+  d.className='ex-card';
+  d.innerHTML = `
+    <div class="ex-type"><i class="ti ti-microphone" style="font-size:14px"></i> ${l.type}</div>
+    <div class="ex-question">${l.q}</div>
+    <div class="ex-arabic">${l.prompt}<br><small style="font-size:13px;font-family:'Nunito',sans-serif;direction:ltr;font-style:italic;color:var(--text-light)">${l.promptLatin}</small></div>
+    <div class="ex-hint">💡 Tips: ${l.hint}</div>
+    <button class="ex-answer-btn" onclick="toggleAnswer(${i})">👁 Lihat Contoh Jawaban ▼</button>
+    <div class="ex-answer" id="ans-${i}">
+      <div class="ex-ans-label">✅ Contoh Jawaban (ganti [ ] dengan informasi pribadimu):</div>
+      <div class="ex-ans-ar">${l.ar}</div>
+      <div class="ex-ans-id">${l.id}</div>
+    </div>`;
+  ll.appendChild(d);
+});
+function toggleAnswer(i){
+  const el=document.getElementById('ans-'+i);
+  el.classList.toggle('show');
+  const btn=el.previousElementSibling;
+  btn.textContent = el.classList.contains('show') ? '🙈 Sembunyikan ▲' : '👁 Lihat Contoh Jawaban ▼';
+}
+
+// ===========================
+// DIALOG
+// ===========================
+let activeDialog=0;
+const dt=document.getElementById('dialog-tabs');
+dialogData.forEach((d,i)=>{
+  const b=document.createElement('button');
+  b.className='dialog-tab-btn'+(i===0?' active':'');
+  b.textContent=d.label;
+  b.onclick=()=>{ activeDialog=i; renderDialog(); document.querySelectorAll('.dialog-tab-btn').forEach((x,j)=>x.classList.toggle('active',j===i)); };
+  dt.appendChild(b);
+});
+function renderDialog(){
+  const dc=document.getElementById('dialog-content');
+  dc.innerHTML='';
+  dialogData[activeDialog].lines.forEach(line=>{
+    if(line.type==='label'){
+      const d=document.createElement('div'); d.className='dialog-label'; d.textContent=line.text; dc.appendChild(d);
+    } else {
+      const d=document.createElement('div'); d.className='dialog-bubble '+line.side;
+      d.innerHTML=`<div class="dialog-avatar">${line.av}</div><div class="dialog-text"><div class="dialog-ar">${line.ar}</div><div class="dialog-latin">${line.latin}</div><div class="dialog-id">${line.id}</div></div>`;
+      dc.appendChild(d);
+    }
+  });
+}
+renderDialog();
+
+// ===========================
+// KAMUS
+// ===========================
+const allCats = [...new Set(kamusData.map(w=>w.cat))];
+let activeKamusCat = null;
+const kf = document.getElementById('kamus-filter');
+allCats.forEach(cat=>{
+  const b=document.createElement('button');
+  b.className='kf-btn'; b.textContent=cat;
+  b.onclick=()=>{
+    if(activeKamusCat===cat){ activeKamusCat=null; b.classList.remove('active'); }
+    else { activeKamusCat=cat; document.querySelectorAll('.kf-btn').forEach(x=>x.classList.remove('active')); b.classList.add('active'); }
+    filterKamus();
+  };
+  kf.appendChild(b);
+});
+
+function filterKamus(){
+  const q=document.getElementById('kamus-input').value.toLowerCase().trim();
+  let data=kamusData;
+  if(activeKamusCat) data=data.filter(w=>w.cat===activeKamusCat);
+  if(q.length>=2) data=data.filter(w=>w.id.toLowerCase().includes(q)||w.ar.includes(document.getElementById('kamus-input').value.trim())||w.latin.toLowerCase().includes(q)||w.cat.toLowerCase().includes(q));
+  const kl=document.getElementById('kamus-list');
+  if(data.length===0){ kl.innerHTML='<div class="kamus-none">🔍 Kata tidak ditemukan. Coba kata lain.</div>'; return; }
+  kl.innerHTML=data.map(w=>`<div class="kamus-item"><div class="kamus-ar">${w.ar}</div><div class="kamus-latin">${w.latin}</div><div class="kamus-id">${w.id}</div><div class="kamus-cat">${w.cat}</div></div>`).join('');
+}
+filterKamus();
+
+// ===========================
+// NAV
+// ===========================
+function showSection(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('sec-'+id).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
